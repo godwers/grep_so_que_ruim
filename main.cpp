@@ -35,9 +35,6 @@ int main(int argc, char *argv[]) {
   std::string line;
   int line_position = 1;
   while (std::getline(file, line)) {
-    // TODO
-    // tellg() gets the last buffer of the line
-    // make the grep algorithm
     if (findPattern(line, pattern)) {
       std::cout << line_position << " " << line << "\n";
     }
