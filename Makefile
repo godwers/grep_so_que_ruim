@@ -2,8 +2,10 @@ CC=g++
 CPPFLAGS=-O2 -lm
 BINARY=bgrep
 
+build: main.cpp 
+	$(CC) $(CPPFLAGS) main.cpp -o $(BINARY)
+
 test: $(BINARY)
-	echo 
 	./$(BINARY) "amigos" testando.txt
 	echo 
 	./$(BINARY) "dia" testando.txt
@@ -14,5 +16,3 @@ test: $(BINARY)
 	echo 
 	./$(BINARY) "Deus" igrejadodiabo.txt
 	echo 
-build: 
-	$(CC) $(CPPFLAGS) main.cpp -o $(BINARY)
