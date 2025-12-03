@@ -1,9 +1,18 @@
-CC = gcc 
-CFLAGS = -O2 -lm
+CC=g++
+CPPFLAGS=-O2 -lm
+BINARY=bgrep
 
-test: main.cpp
-	g++ main.cpp -O2
-	./a.out "penis" testando.txt
-	./a.out "p" testando.txt
-	./a.out "a" testando.txt
-	./a.out "Diabo" igrejadodiabo.txt
+test: $(BINARY)
+	echo 
+	./$(BINARY) "amigos" testando.txt
+	echo 
+	./$(BINARY) "dia" testando.txt
+	echo 
+	./$(BINARY) "a" testando.txt
+	echo 
+	./$(BINARY) "Diabo" igrejadodiabo.txt
+	echo 
+	./$(BINARY) "Deus" igrejadodiabo.txt
+	echo 
+build: 
+	$(CC) $(CPPFLAGS) main.cpp -o $(BINARY)
