@@ -1,4 +1,9 @@
-## Pq você está lendo isso?
-# TODO:
+# O que é grep?
+Basicamente o grep serve para encontrar um padrão <br>
+e mostrar-lo na tela,o equivalente disso no Windows <br>
+seria o findstr
+ 
+### TODO:
+- [ ] Adicionar para ler multiplos arquivos 
 - [ ] Adicionar opções
-- [ ] Marcar onde que foi encontrado o padrão (doloroso)
+- [ ] Marcar (com cor) onde que foi encontrado o padrão (doloroso)
