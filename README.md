@@ -6,4 +6,4 @@ seria o findstr
 ### TODO:
 - [ ] Adicionar para ler multiplos arquivos 
 - [ ] Adicionar opções
-- [ ] Marcar (com cor) onde que foi encontrado o padrão (doloroso)
+- [x] Marcar (com cor) onde que foi encontrado o padrão (doloroso)

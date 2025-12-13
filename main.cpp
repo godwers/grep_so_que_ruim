@@ -2,7 +2,7 @@
 #include <iostream>
 
 #define COOL_COLOR "\033[4;31m"
-#define RESET_COLOR "\e[0m"
+#define RESET_COLOR "\033[0m"
 
 bool findPattern(std::string text, std::string pattern) {
   int patternIndex = 0;
@@ -19,40 +19,27 @@ bool findPattern(std::string text, std::string pattern) {
   }
   return false;
 }
-void prettyPrint(std::string text, std::string highlightChoice,
-                 int linePosition) {
+
+void prettyPrint(std::string text, std::string pattern, int linePosition) {
   std::string prettyText = "";
-  int lastPosition = text.size();
+  const int last = pattern.size() - 1;
+  int lastIndex = 0;
   for (int index = 0; index < text.size(); index++) {
-    std::cout << prettyText << "\n";
-    int otherIndex = 0;
+    if (text[index] == pattern[0] &&
+        text.substr(index, pattern.size()) == pattern) {
+      prettyText += COOL_COLOR;
+      lastIndex = index;
+    }
 
-    if (index == lastPosition) {
+    prettyText += text[index];
+    if (text[index] == pattern[last] &&
+        index - lastIndex == pattern.size() - 1) {
       prettyText += RESET_COLOR;
-      continue;
-    }
-
-    if (text[index] != highlightChoice[0]) {
-      prettyText += text[index];
-      continue;
-    }
-
-    while (otherIndex < highlightChoice.size()) {
-      lastPosition = 0;
-      if (text[index] != highlightChoice[otherIndex]) {
-        printf("quebrou");
-        break;
-      }
-      if (otherIndex == highlightChoice.size() - 1) {
-        prettyText += COOL_COLOR;
-        prettyText += text[index];
-        lastPosition = index + otherIndex;
-      }
-      otherIndex++;
     }
   }
   std::cout << linePosition << " " << prettyText << "\n";
 }
+
 int main(int argc, char *argv[]) {
   if (argc < 3) {
     std::cout << "Not enough arguments\n" << "[PATTERN] [FILE]";
