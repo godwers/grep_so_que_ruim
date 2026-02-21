@@ -1,13 +1,15 @@
 CC=g++
-CPPFLAGS=-O2 -lm
+CPPFLAGS=-O3 -lm -march=native -Wall -Wextra
 BINARY=bgrep
 
-build: main.cpp 
-	$(CC) $(CPPFLAGS) main.cpp -o $(BINARY)
+build: 
+	$(CC) $(CPPFLAGS) src/main.cpp -o $(BINARY)
 
 test: $(BINARY)
-	./$(BINARY) "amigos" testando.txt
-	./$(BINARY) "dia" testando.txt
-	./$(BINARY) "a" testando.txt
-	./$(BINARY) "Diabo" igrejadodiabo.txt
-	./$(BINARY) "Deus" igrejadodiabo.txt
+	./$(BINARY) "amigos" test/testando.txt
+	./$(BINARY) "dia" test/testando.txt
+	./$(BINARY) "a" test/testando.txt
+	./$(BINARY) "Diabo" test/igrejadodiabo.txt
+	./$(BINARY) "Deus" test/igrejadodiabo.txt
+clear: $(BINARY)
+	@rm -rf ./$(BINARY)
