@@ -1,5 +1,5 @@
 CC=g++
-CPPFLAGS=-O3 -lm -march=native -Wall -Wextra
+CPPFLAGS=-Ofast -lm -march=native -Wall -Wextra -Wpedantic -funroll-loops 
 BINARY=bgrep
 
 build: 
