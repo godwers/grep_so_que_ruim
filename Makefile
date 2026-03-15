@@ -13,3 +13,7 @@ test: $(BINARY)
 	./$(BINARY) "Deus" test/igrejadodiabo.txt
 clear: $(BINARY)
 	@rm -rf ./$(BINARY)
+install: $(BINARY)
+	@cp $(BINARY) /usr/bin
+uninstall: $(BINARY)
+	@rm -i /usr/bin/$(BINARY)
